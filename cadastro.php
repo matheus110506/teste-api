@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         $stmt = $conn->prepare("SELECT id FROM usuarios WHERE email = ?");
-        $stmt->blind_param("s", $email);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->store-result();
 
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
         $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)");
-        $stmt->blind_param("ssss", $nome, $email, $senhaHash, $tipo);
+        $stmt->bind_param("ssss", $nome, $email, $senhaHash, $tipo);
 
         if($stmt->execute()) {
             $mensagem = "Usuário castrado com sucesso!";
@@ -72,4 +72,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 </body>
+
 </html>
