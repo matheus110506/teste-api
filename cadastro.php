@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $conn->prepare("SELECT id FROM usuarios WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
-        $stmt->store-result();
+        $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
             $mensagem = "Email já cadastrado!";
@@ -74,3 +74,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
