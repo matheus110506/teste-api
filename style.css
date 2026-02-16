@@ -91,7 +91,6 @@ select:focus {
 
 /* Mensagem padrão (erro) */
 .mensagem {
-    background: #ffebee;
-    color: #c62828;
+    background: #b7b9b4cc;
+    color: #000000;
 }
-
