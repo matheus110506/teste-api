@@ -44,25 +44,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+<div class="auth-container">
+
     <h2>Login</h2>
 
-    <p style="color:red;"><?php echo $mensagem; ?></p>
+    <?php if (!empty($mensagem)): ?>
+        <div class="erro"><?php echo $mensagem; ?></div>
+    <?php endif; ?>
 
     <form method="POST">
 
-        <label>Email:</label><br>
-        <input type="email" name="email"><br><br>
+        <input type="email" name="email" placeholder="Email" required>
 
-        <label>Senha:</label><br>
-        <input type="password" name="senha"><br><br>
+        <input type="password" name="senha" placeholder="Senha" required>
 
-        <button type="submit">Entrar</button><br>
-        <a href="cadastro.php" class="botao">Não tenho uma conta</a>
-</form>
+        <button type="submit">Entrar</button>
+
+    </form>
+
+    <div class="auth-link">
+        <a href="cadastro.php">Não tenho uma conta</a>
+    </div>
+
+</div>
 
 </body>
 </html>
