@@ -7,7 +7,7 @@ if (!isset($_SESSION["usuario_id"])) {
     exit();
 }
 
-if ($_SESSION["usuario_tipo"] !== "pai") {
+if ($_SESSION["usuario_tipo"] !== "mae") {
     die("Apenas pais podem criar tarefas");
 }
 
@@ -54,3 +54,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
 ?>
+
