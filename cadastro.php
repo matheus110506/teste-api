@@ -41,36 +41,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Cadastro</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <h2>Cadastro de Usuário</h2>
+<div class="auth-container">
 
-    <p style="color:red;"><?php echo $mensagem; ?></p>
+    <h2>Criar Conta</h2>
+
+    <?php if (!empty($mensagem)): ?>
+        <div class="mensagem"><?php echo $mensagem; ?></div>
+    <?php endif; ?>
 
     <form method="POST">
 
-        <label>Nome:</label><br>
-        <input type="text" name="nome"><br><br>
+        <input type="text" name="nome" placeholder="Nome" required>
 
-        <label>Email:</label><br>
-        <input type="email" name="email"><br><br>
+        <input type="email" name="email" placeholder="Email" required>
 
-        <label>Senha:</label><br>
-        <input type="password" name="senha"><br><br>
+        <input type="password" name="senha" placeholder="Senha" required>
 
-        <label>Tipo:</label><br>
-        <select name="tipo">
+        <select name="tipo" required>
+            <option value="">Selecione o tipo</option>
             <option value="mae">Mãe</option>
             <option value="filho">Filho</option>
-        </select><br><br>
+        </select>
 
-        <button type="submit">Cadastrar</button><br>
-        <a href="login.php" class="botao">Já tenho uma conta</a>
+        <button type="submit">Cadastrar</button>
+
     </form>
 
-</body>
+    <div class="auth-link">
+        <a href="login.php">Já tenho uma conta</a>
+    </div>
 
+</div>
+
+</body>
 </html>
