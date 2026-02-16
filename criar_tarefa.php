@@ -7,6 +7,10 @@ if (!isset($_SESSION["usuario_id"])) {
     exit();
 }
 
+if ($_SESSION["usuario_tipo"] !== "mae") {
+    die("Apenas pais podem criar tarefas");
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $titulo = trim($_POST["titulo"]);
@@ -17,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $sql = "INSERT INTO tarefas (titulo, descricao, usuario_id) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->blind_param("ssi", $titulo, $descricao, $usuario_id);
+        $stmt->bind_param("ssi", $titulo, $descricao, $usuario_id);
 
         if ($stmt->execute()) {
             header("Location: dashboard.php");
