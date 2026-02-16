@@ -60,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Senha:</label><br>
         <input type="password" name="senha"><br><br>
 
-        <button type="submit">Entrar</bytton>
-
+        <button type="submit">Entrar</button><br>
+        <a href="cadastro.php" class="botao">Não tenho uma conta</a>
 </form>
 
 </body>
