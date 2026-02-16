@@ -47,6 +47,14 @@ $resultado = $stmt->get_result();
                 Marcar como concluída
         </a>
     <?php endif; ?>
+
+    <?php if ($_SESSION["usuario_tipo"] == "mae"): ?>
+        <br>
+        <a href="excluir_tarefa.php?id=<?php echo $tarefa["id"]; ?>">
+            Excluir
+        </a>
+    <?php endif; ?>
+
     </div>
 
 <?php endwhile; ?>
