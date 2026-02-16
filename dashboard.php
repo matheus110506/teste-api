@@ -19,11 +19,28 @@ $resultado = $stmt->get_result();
 <h2>Bem vindo, <?php echo $_SESSION["usuario_nome"]; ?>!</h2>
 <a href="logout.php">Sair</a>
 
-<?php if ($_SESSION["usuario_tipo"] == "mae"): ?>
+<?php 
+if ($_SESSION["usuario_tipo"] == "mae") { 
+
+    $sql_filhos = "SELECT id, nome FROM usuarios WHERE tipo = 'filho'";
+    $resultado_filhos = $conn->query($sql_filhos);
+}
+?>
 <h2>Nova Tarefa</h2>
 <form method="POST" action="criar_tarefa.php">
+
     <input type="text" name="titulo" placeholder="Título da tarefa" required>
     <textarea name="descricao" placeholder="Descrição"></textarea>
+
+    <label>Para qual filho?<label>
+    <select name="usuario_id" required>
+        <?php while ($filho = $resultado_filhos->fetch_assoc()): ?>
+            <option value="<?php echo $filho["id"]; ?>">
+                <?php echo $filho["nome"]; ?>
+        </option>
+        <?php endwhile; ?>
+    </select>
+
     <button type="submit">Adicionar</button>
 </form>
 <?php endif; ?>
