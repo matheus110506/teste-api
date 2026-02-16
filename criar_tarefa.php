@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = trim($_POST["descricao"]);
     $usuario_id = (int) $_POST["usuario_id"];
 
-    if (!empty($titulo)) {
+    if (empty($titulo)) {
         die("O título é obrigatório");
     }
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt_verifica->execute();
         $resultado_verifica = $stmt_verifica->get_result();
 
-        if ($resultado_verifica->num_rows === 1) {
+        if ($resultado_verifica->num_rows !== 1) {
             die("Usuário inválido");
         }
 
@@ -54,4 +54,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 
 ?>
-
