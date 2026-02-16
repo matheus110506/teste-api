@@ -39,7 +39,10 @@ $resultado = $stmt->get_result();
         <?php echo $tarefa["descricao"]; ?><br>
         Status: <?php echo $tarefa["status"]; ?><br>
 
-        <?php if ($tarefa["status"] == "pendente"): ?>
+        <?php if (
+            $tarefa["status"] == "pendente"
+            && $_SESSION["usuario_tipo"] == "filho"
+            ): ?>
             <a href="concluir_tarefa.php?id=<?php echo $tarefa["id"]; ?>">
                 Marcar como concluída
         </a>
@@ -52,4 +55,3 @@ $resultado = $stmt->get_result();
 $stmt->close();
 $conn->close();
 ?>
-
