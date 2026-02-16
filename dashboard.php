@@ -34,7 +34,7 @@ $resultado = $stmt->get_result();
 <h2>Bem vindo, <?php echo $_SESSION["usuario_nome"]; ?>!</h2>
 <a href="logout.php">Sair</a>
 
-<?php if ($_SESSION["usuario_tipo"] == "pai") {
+<?php if ($_SESSION["usuario_tipo"] == "mae") {
 
     $sql_filhos = "SELECT id, nome FROM usuarios WHERE tipo = 'filho'";
     $resultado_filhos = $conn->query($sql_filhos);
@@ -68,7 +68,7 @@ $resultado = $stmt->get_result();
 
             <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
 
-            <?php if ($_SESSION["usuario_tipo"] == "pai"): ?>
+            <?php if ($_SESSION["usuario_tipo"] == "mae"): ?>
                 <strong>Filho:</strong> <?php echo $tarefa["nome"]; ?><br>
             <?php endif; ?>
 
@@ -85,7 +85,7 @@ $resultado = $stmt->get_result();
                 </a>
             <?php endif; ?>
 
-            <?php if ($_SESSION["usuario_tipo"] == "pai"): ?>
+            <?php if ($_SESSION["usuario_tipo"] == "mae"): ?>
                 <br>
                 <a href="excluir_tarefa.php?id=<?php echo $tarefa["id"]; ?>">
                     Excluir
@@ -99,3 +99,4 @@ $resultado = $stmt->get_result();
     $stmt->close();
     $conn->close();
 ?>
+
