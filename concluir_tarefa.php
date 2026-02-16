@@ -7,6 +7,10 @@ if (!isset($_SESSION["usuario_id"])) {
     exit();
 }
 
+if ($_SESSION["usuario_tipo"] !== "filho") {
+    die("Apenas filhos podem concluir tarefas");
+}
+
 if (isset($_GET["id"])) {
 
     $tarefa_id = (int) $_GET["id"];
