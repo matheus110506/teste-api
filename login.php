@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         $stmt = $conn->prepare("SELECT id, nome, senha, tipo FROM usuarios WHERE email = ?");
-        $stmt->blind_param("s", $email);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $resultado = $stmt->get_result();
 
@@ -65,4 +65,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 </body>
+
 </html>
