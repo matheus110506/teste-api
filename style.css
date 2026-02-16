@@ -21,7 +21,7 @@ body {
 }
 
 input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 6px;
@@ -94,3 +94,4 @@ select:focus {
     background: #ffebee;
     color: #c62828;
 }
+
