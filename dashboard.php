@@ -19,7 +19,7 @@ $resultado = $stmt->get_result();
 <h2>Bem vindo, <?php echo $_SESSION["usuario_nome"]; ?>!</h2>
 <a href="logout.php">Sair</a>
 
-<?php if ($_SESSION["usuario_tipo"] == "pai"): ?>
+<?php if ($_SESSION["usuario_tipo"] == "mae"): ?>
 <h2>Nova Tarefa</h2>
 <form method="POST" action="criar_tarefa.php">
     <input type="text" name="titulo" placeholder="Título da tarefa" required>
@@ -52,3 +52,4 @@ $resultado = $stmt->get_result();
 $stmt->close();
 $conn->close();
 ?>
+
