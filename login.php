@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
 
             } else {
-                $mensagem = "Senha incorreta!":
+                $mensagem = "Senha incorreta!";
             }
         } else {
             $mensagem = "Usuário não encontrado!";
@@ -65,5 +65,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 
 </body>
-
 </html>
