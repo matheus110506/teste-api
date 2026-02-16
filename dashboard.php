@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
 <?php
 session_start();
 require "conexao.php";
@@ -66,7 +77,7 @@ $resultado = $stmt->get_result();
 
         <?php while ($tarefa = $resultado->fetch_assoc()): ?>
 
-            <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+            <div class="card">
 
             <?php if ($_SESSION["usuario_tipo"] == "mae"): ?>
                 <strong>Filho:</strong> <?php echo $tarefa["nome"]; ?><br>
@@ -99,3 +110,7 @@ $resultado = $stmt->get_result();
     $stmt->close();
     $conn->close();
 ?>
+
+</div>
+</body>
+</html>
