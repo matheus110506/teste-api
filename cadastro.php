@@ -67,11 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="filho">Filho</option>
         </select><br><br>
 
-        <button type="submit">Cadastrar</button>
-
-</form>
+        <button type="submit">Cadastrar</button><br>
+        <a href="login.php" class="botao">Já tenho uma conta</a>
+    </form>
 
 </body>
 
 </html>
-
