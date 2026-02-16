@@ -14,13 +14,10 @@ if ($_SESSION["usuario_tipo"] !== "mae") {
 if (isset($_GET["id"])) {
     
     $tarefa_id = (int) $_GET["id"];
-    $usuario_id = $_SESSION["usuario_id"];
 
-    $sql = "DELETE FROM tarefas
-            WHERE id = ? AND usuario_id = ?";
-
+    $sql = "DELETE FROM tarefas WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $tarefa_id, $usuario_id);
+    $stmt->bind_param("i", $tarefa_id);
     $stmt->execute();
     $stmt->close();
 }
