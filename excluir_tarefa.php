@@ -7,7 +7,7 @@ if (!isset($_SESSION["usuario_id"])) {
     exit();
 }
 
-if ($_SESSION["usuario_tipo"] !== "pai") {
+if ($_SESSION["usuario_tipo"] !== "mae") {
     die("Apenas pais podem excluir tarefas");
 }
 
@@ -29,3 +29,4 @@ $conn->close();
 header("Location: dashboard.php");
 exit();
 ?>
+
