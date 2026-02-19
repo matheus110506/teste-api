@@ -48,31 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-<div class="auth-container">
-
-    <h2>Login</h2>
-
-    <?php if (!empty($mensagem)): ?>
-        <div class="erro"><?php echo $mensagem; ?></div>
-    <?php endif; ?>
-
-    <form method="POST">
-
-        <input type="email" name="email" placeholder="Email" required>
-
-        <input type="password" name="senha" placeholder="Senha" required>
-
-        <button type="submit">Entrar</button>
-
-    </form>
-
-    <div class="auth-link">
-        <a href="cadastro.php">Não tenho uma conta</a>
-    </div>
-
-</div>
-
-</body>
 </html>
+
+asaafakasfakskfsagsagassiatnatgafdf sdfsdfsdfdsfdsfdsfs fesfesfsef
